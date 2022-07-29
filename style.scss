@@ -19,7 +19,6 @@ $rotation: 0;
     font-family: $font;
     box-sizing: border-box;
 }
-
 body {
     background: linear-gradient(to right, $purpleDark, $purpleLight);
     @include center;
