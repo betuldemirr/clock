@@ -2,10 +2,10 @@ $font:  'Poppins', sans-serif;
 
 $black: #000;
 $white: #fff;
-$red: red;
-$light: rgba(255, 255, 255, 0.8);
-$purpleDark: hsl(262, 40%, 40%);
-$purpleLight: hsl(288, 54%, 87%);
+$pink: rgba(199, 0, 123, 0.873);
+$light: rgba(212, 222, 224, 0.888);
+$blueDark: hsla(228, 80%, 14%, 0.87);
+$blueLight: hsl(214, 100%, 73%);
 
 $rotation: 0;
 
@@ -20,7 +20,10 @@ $rotation: 0;
     box-sizing: border-box;
 }
 body {
-    background: linear-gradient(to right, $purpleDark, $purpleLight);
+    background-image: url("./assets/background.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    //background: linear-gradient(to right, $blueDark, $blueLight);
     @include center;
     min-height: 100vh;
     overflow: hidden;
@@ -28,6 +31,8 @@ body {
         position: absolute;
         top: 2%;
         font-size: 2.5rem;
+        text-shadow: 1px 1px $pink;
+        color: $blueDark;
     }
     .clock {
         width: 500px;
@@ -36,6 +41,7 @@ body {
         border-radius: 50%;
         border: 4px solid $black;
         position: relative;
+        z-index: 1;
     }
     .clock::after {
         content: '';
@@ -84,7 +90,7 @@ body {
     .second {
         width: 3px;
         height: 45%;
-        background-color: $red;
+        background-color: $pink;
     }
     .minute {
         width: 7px;
@@ -95,5 +101,58 @@ body {
         width: 10px;
         height: 35%;
         background-color: $black;
+    }
+}
+.bubbles {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    position: absolute;
+    bottom: -50px;
+    img {
+        width: 50px;
+        animation: bubble 6s linear infinite;
+    }
+    img:nth-child(1) {
+        animation-delay: 2s;
+        width: 25px;
+    }
+    img:nth-child(2) {
+        animation-delay: 1s;
+    }
+    img:nth-child(3) {
+        animation-delay: 3s;
+        width: 25px;
+    }
+    img:nth-child(4) {
+        animation-delay: 4.5s;
+    }
+    img:nth-child(5) {
+        animation-delay: 3s;
+    }    
+    img:nth-child(6) {
+        animation-delay: 6s;
+        width: 20px;
+    }
+    img:nth-child(7) {
+        width: 35px;
+        animation-delay: 7s;
+    }
+    @keyframes bubble {
+        0% {
+            transform: translateY(0);
+            opacity: 0;
+        }
+        50% {
+            opacity: 1;
+        }
+        70% {
+            opacity: 1;
+        }
+        100% {
+            transform: translateY(-80vh);
+            opacity: 0;
+        }
     }
 }
